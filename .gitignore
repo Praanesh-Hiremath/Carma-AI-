@@ -1,0 +1,11 @@
+# --- Backend (chassis) ---
+chassis/__pycache__/
+chassis/venv/
+chassis/env/
+chassis/leads.csv
+
+# --- Frontend (paint) ---
+paint/frontend/node_modules/
+paint/frontend/.next/
+paint/frontend/.env.local
+node_modules/
