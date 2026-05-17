@@ -27,7 +27,7 @@ app.add_middleware(
 
 # --- FILE PATH ---
 # Using your exact local path
-CSV_FILE_PATH = r"C:\Users\Praanesh\OneDrive\Desktop\=Praan=\codes\CarRecommendation\google version\backend-google\cars_cleaned.csv"
+CSV_FILE_PATH = os.path.join(os.path.dirname(__file__), "cars_cleaned.csv")
 
 # --- TAX & RTO CONFIGURATION ---
 STATE_TAX_DATA = {
