@@ -1,4 +1,3 @@
 fastapi
 uvicorn
 pandas
-python -m uvicorn main:app --reload
