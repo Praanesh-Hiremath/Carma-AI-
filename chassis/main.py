@@ -162,6 +162,9 @@ class LeadRequest(BaseModel):
     car_model: str
 
 # ─── ENDPOINTS ───────────────────────────────────────────────────────────────
+@app.get("/")
+async def root_health_check():
+    return {"message": "Carma API is alive and running!"}
 
 @app.get("/news")
 async def get_news():
