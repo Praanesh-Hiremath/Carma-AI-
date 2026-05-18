@@ -1,6 +1,9 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
+// Use env var for API base URL so deployed frontend talks to deployed backend
+const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+
 export default function Home() {
   const formRef = useRef(null);
   const newsRef = useRef(null);
@@ -19,7 +22,7 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
 
     // Crash-Proof News Fetch
-    fetch("https://carma-ai-h8v9.onrender.com/recommend")
+    fetch(`${baseUrl}/recommend`)
       .then((res) => (res.ok ? res.json() : []))
       .then((data) => setNews(Array.isArray(data) ? data : []))
       .catch((err) => {
@@ -64,7 +67,7 @@ export default function Home() {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/submit-lead", {
+      const response = await fetch(`${baseUrl}/submit-lead`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(leadData),
@@ -103,7 +106,7 @@ export default function Home() {
     const dataToSend = overrideData || formData;
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/recommend", {
+      const response = await fetch(`${baseUrl}/recommend`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend),
